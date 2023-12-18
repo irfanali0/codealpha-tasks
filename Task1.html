@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+     <div class="header">
+        <h2>Task 1</h2>
+    </div>
+    <div id="age-calculator">
+        <h2>Age Calculator</h2>
+        <p>Welcome to our age calculator! Simply enter your birthdate, and we'll instantly determine your current age, providing you with an accurate representation of how many years you've lived.</p>
+        <form id="age-form">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+            <button type="button" id="dbtn" onclick="calculateAge()">Calculate Age</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+   
+    
+    <script>
+        function calculateAge() {
+            const dobValue = document.getElementById('dob').value;
+
+            if (dobValue) {
+                const dob = new Date(dobValue);
+                const today = new Date();
+                const age = today.getFullYear() - dob.getFullYear();
+
+                document.getElementById('result').innerText = `Your age is ${age} years.`;
+            } else {
+                document.getElementById('result').innerText = 'Please enter your date of birth.';
+            }
+        }
+    </script>
+</body>
+</html>
